@@ -15,6 +15,8 @@ RUN apt-get install -y --no-install-recommends dovecot-core \
                                                cron \
                                                supervisor
 
+RUN useradd -r -u 993 -U -G mail -M -d /var/mail -s /usr/sbin/nologin vmail
+
 RUN mkdir -p /etc/dovecot/conf.d
 ADD files/dovecot/dovecot-ldap.conf.ext /etc/dovecot/dovecot-ldap.conf.ext
 COPY files/dovecot/conf.d/* /etc/dovecot/conf.d/
