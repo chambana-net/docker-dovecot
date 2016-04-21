@@ -4,8 +4,7 @@ MAINTAINER Josh King <jking@chambana.net>
 
 RUN apt-get -qq update
 
-RUN apt-get install -y --no-install-recommends dovecot \
-                                               dovecot-core \
+RUN apt-get install -y --no-install-recommends dovecot-core \
                                                dovecot-ldap \
                                                dovecot-imapd \
                                                dovecot-lmtpd \
