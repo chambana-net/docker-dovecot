@@ -12,6 +12,7 @@ RUN apt-get install -y --no-install-recommends dovecot-core \
                                                dovecot-managesieved \
                                                spamassassin \
                                                dovecot-antispam \
+                                               cron \
                                                supervisor
 
 RUN mkdir -p /etc/dovecot/conf.d
