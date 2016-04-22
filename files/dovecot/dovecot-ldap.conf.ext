@@ -52,7 +52,7 @@ tls = yes
 #tls_cert_file =
 #tls_key_file =
 # Valid values: never, hard, demand, allow, try
-tls_require_cert = try
+tls_require_cert = never
 
 # Use the given ldaprc path.
 #ldaprc_path =
