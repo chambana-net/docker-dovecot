@@ -2,9 +2,8 @@ FROM chambana/base:latest
 
 MAINTAINER Josh King <jking@chambana.net>
 
-RUN apt-get -qq update
-
-RUN apt-get install -y --no-install-recommends dovecot-core \
+RUN apt-get -qq update && \
+    apt-get install -y --no-install-recommends dovecot-core \
                                                dovecot-ldap \
                                                dovecot-imapd \
                                                dovecot-lmtpd \
@@ -13,7 +12,8 @@ RUN apt-get install -y --no-install-recommends dovecot-core \
                                                spamassassin \
                                                dovecot-antispam \
                                                cron \
-                                               supervisor
+                                               supervisor && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -r -u 993 -U -G mail -M -d /var/mail -s /usr/sbin/nologin vmail
 
