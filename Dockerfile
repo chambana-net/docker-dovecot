@@ -15,7 +15,7 @@ RUN apt-get -qq update && \
                                                supervisor && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV DOVECOT_LDAP_HOSTS ldap:636
+ENV DOVECOT_LDAP_HOSTS ldap:389
 
 RUN useradd -r -u 993 -U -G mail -M -d /var/mail -s /usr/sbin/nologin vmail
 
