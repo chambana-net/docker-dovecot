@@ -18,4 +18,9 @@ chown -R vmail:vmail /var/mail
 
 MSG "Starting Dovecot..."
 
+MSG "Updating CA certificates..."
+if [[ "$(ls -A /usr/local/share/ca-certificates)" ]]; then
+	update-ca-certificates
+fi
+
 supervisord -c /etc/supervisor/supervisord.conf 
