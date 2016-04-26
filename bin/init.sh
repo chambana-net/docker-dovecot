@@ -16,11 +16,16 @@ sed -i -e "s/^auth_bind_userdn\ *=.*/auth_bind_userdn\ =\ ${DOVECOT_LDAP_AUTH_BI
 
 chown -R vmail:vmail /var/mail
 
-MSG "Starting Dovecot..."
+MSG "Compiling filters..."
+if [[ -e /var/vmail/sieve/before.d/spam.sieve ]]; then
+	sievec /var/vmail/sieve/before.d/spam.sieve
+fi
 
 MSG "Updating CA certificates..."
 if [[ "$(ls -A /usr/local/share/ca-certificates)" ]]; then
 	update-ca-certificates
 fi
+
+MSG "Starting Dovecot..."
 
 supervisord -c /etc/supervisor/supervisord.conf 
