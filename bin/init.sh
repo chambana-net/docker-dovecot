@@ -17,8 +17,8 @@ sed -i -e "s/^auth_bind_userdn\ *=.*/auth_bind_userdn\ =\ ${DOVECOT_LDAP_AUTH_BI
 chown -R vmail:vmail /var/mail
 
 MSG "Compiling filters..."
-if [[ -e /var/vmail/sieve/before.d/spam.sieve ]]; then
-	sievec /var/vmail/sieve/before.d/spam.sieve
+if [[ -e /var/lib/dovecot/sieve/before.d/spam.sieve ]]; then
+	sievec /var/lib/dovecot/sieve/before.d/spam.sieve
 fi
 
 MSG "Updating CA certificates..."
