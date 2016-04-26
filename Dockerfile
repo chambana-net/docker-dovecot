@@ -21,7 +21,7 @@ RUN useradd -r -u 993 -U -G mail -M -d /var/mail -s /usr/sbin/nologin vmail
 
 RUN mkdir -p /etc/dovecot/conf.d
 ADD files/dovecot/dovecot-ldap.conf.ext /etc/dovecot/dovecot-ldap.conf.ext
-ADD files/dovecot/sieve/spam.sieve /var/vmail/sieve/before.d/spam.sieve
+ADD files/dovecot/sieve/spam.sieve /var/lib/dovecot/sieve/before.d/spam.sieve
 COPY files/dovecot/conf.d/* /etc/dovecot/conf.d/
 
 ADD files/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
