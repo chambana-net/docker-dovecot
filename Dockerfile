@@ -17,6 +17,8 @@ RUN apt-get -qq update && \
 
 ENV DOVECOT_LDAP_HOSTS ldap:389
 
+VOLUME ["/var/mail"]
+
 RUN useradd -r -u 993 -U -G mail -M -d /var/mail -s /usr/sbin/nologin vmail
 
 RUN mkdir -p /etc/dovecot/conf.d
