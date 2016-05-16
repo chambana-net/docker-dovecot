@@ -26,6 +26,9 @@ if [[ "$(ls -A /usr/local/share/ca-certificates)" ]]; then
 	update-ca-certificates
 fi
 
+MSG "Setting Spamassassin DB permissions..."
+chmod -R 777 /var/lib/amavis/.spamassassin
+
 MSG "Starting Dovecot..."
 
 supervisord -c /etc/supervisor/supervisord.conf 

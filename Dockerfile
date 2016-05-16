@@ -26,6 +26,8 @@ ADD files/dovecot/dovecot-ldap.conf.ext /etc/dovecot/dovecot-ldap.conf.ext
 ADD files/dovecot/sieve/spam.sieve /var/lib/dovecot/sieve/before.d/spam.sieve
 COPY files/dovecot/conf.d/* /etc/dovecot/conf.d/
 
+ADD files/spamassassin/local.cf /etc/spamassassin/local.cf
+
 ADD files/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 24 143 10143
