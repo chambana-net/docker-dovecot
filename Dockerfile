@@ -12,6 +12,7 @@ RUN apt-get -qq update && \
                                                spamassassin \
                                                dovecot-antispam \
                                                cron \
+                                               sudo \
                                                supervisor && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -31,6 +32,11 @@ ADD files/spamassassin/local.cf /etc/spamassassin/local.cf
 ADD files/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 24 143 10143
+
+## Add sa-learn wrapper script.
+ADD bin/sa-learn-wrapper.sh /usr/bin/sa-learn-wrapper.sh
+RUN chown root:root /usr/bin/sa-learn-wrapper.sh
+RUN chmod 0700 /usr/bin/sa-learn-wrapper.sh
 
 ## Add startup script.
 ADD bin/init.sh /app/bin/init.sh
