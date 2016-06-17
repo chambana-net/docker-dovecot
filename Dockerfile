@@ -33,11 +33,6 @@ ADD files/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 24 143 10143
 
-## Add sa-learn wrapper script.
-ADD bin/sa-learn-wrapper.sh /usr/bin/sa-learn-wrapper.sh
-RUN chown root:root /usr/bin/sa-learn-wrapper.sh
-RUN chmod 0700 /usr/bin/sa-learn-wrapper.sh
-
 ## Add startup script.
 ADD bin/run.sh /app/bin/run.sh
 RUN chmod 0755 /app/bin/run.sh
