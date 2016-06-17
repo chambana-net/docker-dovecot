@@ -31,4 +31,4 @@ chmod -R 777 /var/lib/amavis/.spamassassin
 
 MSG "Starting Dovecot..."
 
-supervisord -c /etc/supervisor/supervisord.conf 
+exec "$@"
